@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 272340353}
   - component: {fileID: 272340354}
   - component: {fileID: 272340355}
+  - component: {fileID: 272340356}
   m_Layer: 5
   m_Name: TimingBar
   m_TagString: Untagged
@@ -223,8 +224,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2021580270}
-  offset: {x: 0, y: 2, z: 0}
+  offset: {x: 0, y: 2.5, z: 0}
   canvas: {fileID: 1158067118}
+--- !u!114 &272340356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272340352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd21ee9ac3fd0394fad003a7d312bab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressBar: {fileID: 272340354}
+  dodgeSpotPrefab: {fileID: 7041254273239838008, guid: ad01d96d5a2cec646af8462e26e5678b, type: 3}
+  spotParent: {fileID: 272340353}
 --- !u!1 &298666589
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
+  m_AnchoredPosition: {x: -4.8, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &892067204
@@ -975,6 +991,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321359659}
   m_CullTransparentMesh: 1
+--- !u!1 &1607800895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1607800897}
+  - component: {fileID: 1607800896}
+  m_Layer: 0
+  m_Name: TurnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1607800896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607800895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db21dfe6853cb24aa14891158817bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timingBar: {fileID: 272340356}
+  enemyAttackPatterns: []
+--- !u!4 &1607800897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607800895}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.481152, y: -0.42456973, z: -0.038888656}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1702328833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,6 +1170,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2021813373}
   - component: {fileID: 2021813372}
+  - component: {fileID: 2021813374}
+  - component: {fileID: 2021813375}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1185,6 +1249,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2021813374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021813371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4aca0cd7792b7749ac55e61adc92671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timingBar: {fileID: 272340356}
+--- !u!114 &2021813375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021813371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9772d1415eb8546b9d0538e3b05669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyName: "\uD14C\uC2A4\uD2B8 \uC801"
+  attackPattern:
+    duration: 2
+    dodgeSpots:
+    - start: 0.5
+      end: 0.6
+    - start: 0.3
+      end: 0.4
+  turnManager: {fileID: 1607800896}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1196,3 +1294,4 @@ SceneRoots:
   - {fileID: 2021813373}
   - {fileID: 1158067119}
   - {fileID: 1202513603}
+  - {fileID: 1607800897}
