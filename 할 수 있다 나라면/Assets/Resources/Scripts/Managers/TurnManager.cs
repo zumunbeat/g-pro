@@ -3,68 +3,68 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
-    private enum Turn
+    public enum BattleState { PlayerTurn, EnemyTurn, Busy }
+    public BattleState state;
+
+    public PlayerController player;
+    public EnemyController enemy;
+    public BattleUI battleUI;
+
+    void Start()
     {
-        Player,
-        Enemy
-    }
-
-    private Turn currentTurn;
-
-    public TimingBar timingBar; // 타이밍바 참조
-    public List<TimingPattern> enemyAttackPatterns;
-    private int currentEnemyIndex = 0;
-
-    #region 턴 진행
-    private void Start()
-    {
+        battleUI.SetupButtons(this);
         StartPlayerTurn();
     }
 
-    private void StartPlayerTurn()
+    void StartPlayerTurn()
     {
-        currentTurn = Turn.Player;
-        Debug.Log("플레이어 턴 시작");
-
-        // TODO: 플레이어가 행동할 수 있도록 UI 활성화
-        EndPlayerTurn(); // 테스트용 자동 턴 종료
+        state = BattleState.PlayerTurn;
+        //UI호출
+        battleUI.EnableActionButtons(true);
     }
 
-    public void EndPlayerTurn()
+    public void OnPlayerActionChosen(string action)
     {
-        Debug.Log("플레이어 턴 종료");
-        StartEnemyTurn();
-    }
+        Debug.Log($"행동선택: {action}");
+        battleUI.EnableActionButtons(false);
+        state = BattleState.Busy;
 
-    private void StartEnemyTurn()
-    {
-        currentTurn = Turn.Enemy;
-        Debug.Log("적 턴 시작");
-
-        EnemyAttack();
-    }
-
-    private void EndEnemyTurn(bool isDodged)
-    {
-        Debug.Log(isDodged ? "회피 성공" : "회피 실패");
-
-        // 다음 패턴 순서
-        currentEnemyIndex = (currentEnemyIndex + 1) % enemyAttackPatterns.Count;
-        StartPlayerTurn();
-    }
-    #endregion
-
-    public void EnemyAttack()
-    {
-        if (enemyAttackPatterns.Count == 0)
+        switch (action)
         {
-            Debug.LogWarning("적 패턴 없음!");
-            return;
+            //행동후에 EnemyTurn으로 넘어가도록 Lamda함수 넘기기
+            case "Attack":
+                player.PerformAttack(() => StartEnemyTurn());
+                break;
+            case "Skill":
+                player.PerformSkill(() => StartEnemyTurn());
+                break;
+            case "Item":
+                player.UseItem(() => StartEnemyTurn());
+                break;
+            case "Run":
+                TryRunAway();
+                break;
         }
+    }
 
-        TimingPattern pattern = enemyAttackPatterns[currentEnemyIndex];
+    void TryRunAway()
+    {
+        bool success = Random.value > 0.5f;
+        if (success)
+        {
+            Debug.Log("도망 성공!");
+            // 전투 종료 처리
+        }
+        else
+        {
+            Debug.Log("도망 실패...");
+            StartEnemyTurn();
+        }
+    }
 
-        // 타이밍 바 시작 + 콜백으로 결과 전달 받기
-        timingBar.StartBar(pattern, EndEnemyTurn);
+    void StartEnemyTurn()
+    {
+        state = BattleState.EnemyTurn;
+        enemy.PerformAttack(() => StartPlayerTurn());
     }
 }
