@@ -1,5 +1,5 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
@@ -7,55 +7,42 @@ public class EnemyController : MonoBehaviour
     public int maxHP = 100;
     public int currentHP;
 
-    [Header("공격 패턴")]
-    public TimingPattern attackPattern;
+    private Animator animator;
 
-    [Header("연결 필수")]
-    public TurnManager turnManager;
-    public TimingBar timingBar; // 타이밍 바 컴포넌트 연결
+    private Action onAttackComplete;
+    private string nextAnimation;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Start()
     {
         currentHP = maxHP;
-
-        if (turnManager == null)
-        {
-            Debug.LogError("TurnManager가 없습니다.");
-            return;
-        }
-
-        if (timingBar == null)
-        {
-            Debug.LogError("TimingBar가 연결되지 않았습니다.");
-        }
     }
-
+    public void PlayAnimation(string name)
+    {
+        Debug.Log($"{name} 재생");
+        animator.SetTrigger(name);
+    }
     public void PerformAttack(Action onComplete)
     {
-        Debug.Log($"{enemyName}의 공격 시작!");
+        Debug.Log($"{enemyName}의 공격 애니메이션 시작");
 
-        if (timingBar != null)
-        {
-            timingBar.StartBar(attackPattern, (bool playerDodged) =>
-            {
-                if (!playerDodged)
-                {
-                    Debug.Log("플레이어가 회피에 실패했습니다. 데미지 입습니다.");
-                    turnManager.player.TakeDamage(10); // 예시 데미지
-                }
-                else
-                {
-                    Debug.Log("플레이어가 회피에 성공했습니다!");
-                }
+        onAttackComplete = onComplete;
+        nextAnimation = AnimState.Idle;
 
-                onComplete?.Invoke(); // 턴 넘기기
-            });
-        }
-        else
-        {
-            Debug.LogWarning("타이밍 바 없음 - 공격 생략됨");
-            onComplete?.Invoke();
-        }
+        animator.SetTrigger(AnimState.Attack);
+    }
+
+    // 애니메이션 마지막에 이벤트로 호출됨
+    public void OnAttackAnimationComplete()
+    {
+        Debug.Log($"{enemyName}의 공격 애니메이션 종료 → Idle");
+        animator.SetTrigger(nextAnimation);
+        onAttackComplete?.Invoke();
+        onAttackComplete = null;
     }
 
     public void TakeDamage(int amount)
@@ -69,11 +56,10 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void Die()
+    private void Die()
     {
         Debug.Log($"{enemyName}이(가) 쓰러졌습니다!");
         gameObject.SetActive(false);
-        // 이후 게임 상태나 전투 종료 처리 추가 가능
     }
 
     public void ResetEnemy()

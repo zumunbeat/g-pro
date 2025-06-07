@@ -1039,6 +1039,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  timingBar: {fileID: 272340356}
+  enemyAttackPatterns:
+  - duration: 1
+    dodgeSpots:
+    - start: 0.5
+      end: 0.6
   player: {fileID: 2021580271}
   enemy: {fileID: 2021813374}
   battleUI: {fileID: 418857933}
@@ -1104,6 +1110,7 @@ GameObject:
   - component: {fileID: 2021580270}
   - component: {fileID: 2021580269}
   - component: {fileID: 2021580271}
+  - component: {fileID: 2021580272}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1155,7 +1162,7 @@ SpriteRenderer:
   m_SortingLayerID: 864599437
   m_SortingLayer: 1
   m_SortingOrder: 999
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: -2416315434129604887, guid: 224725a51735b264dbda748ba9e7f45d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1175,8 +1182,8 @@ Transform:
   m_GameObject: {fileID: 2021580268}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: -1.87, z: 0}
-  m_LocalScale: {x: 3.1478, y: 3.1478, z: 3.1478}
+  m_LocalPosition: {x: -4.66, y: -1.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1196,6 +1203,28 @@ MonoBehaviour:
   playerName: "\uD50C\uB808\uC774\uC5B4"
   maxHP: 100
   currentHP: 0
+--- !u!95 &2021580272
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021580268}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: efee5ea332ea17d4bbc5a0f08fe52ccb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2021813371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,6 +1236,7 @@ GameObject:
   - component: {fileID: 2021813373}
   - component: {fileID: 2021813372}
   - component: {fileID: 2021813374}
+  - component: {fileID: 2021813375}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1258,9 +1288,9 @@ SpriteRenderer:
   m_SortingLayerID: 864599437
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: -137388484782760784, guid: e4a8236b6d6629e4d943fcb09be985e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 2}
@@ -1278,8 +1308,8 @@ Transform:
   m_GameObject: {fileID: 2021813371}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.12, y: -1.22, z: 0}
-  m_LocalScale: {x: 2.1137, y: 2.1137, z: 2.1137}
+  m_LocalPosition: {x: 3.93, y: -1.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1299,15 +1329,28 @@ MonoBehaviour:
   enemyName: "\uAE30\uBCF8 \uC801"
   maxHP: 100
   currentHP: 0
-  attackPattern:
-    duration: 2
-    dodgeSpots:
-    - start: 0.4
-      end: 0.5
-    - start: 0.6
-      end: 0.7
-  turnManager: {fileID: 1607800896}
-  timingBar: {fileID: 272340356}
+--- !u!95 &2021813375
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021813371}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40a6c7e8a9af2ce469ea371a07dd8279, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &277830271792078632
 PrefabInstance:
   m_ObjectHideFlags: 0

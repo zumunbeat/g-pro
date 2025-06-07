@@ -31,6 +31,7 @@ public class TimingBar : MonoBehaviour
         //    Debug.LogWarning("회피 구간이 비어 있습니다.");
         //    return;
         //}
+        Debug.Log("Start Bar 생성");
         duration = pattern.duration;
         spotSuccesses = new List<bool>(new bool[currentSpots.Count]);//모두 false로 초기화
         currentTime = 0f;
