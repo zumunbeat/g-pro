@@ -3,7 +3,7 @@ using UnityEngine;
 public class TimingBarFollow : MonoBehaviour
 {
     public Transform target;//플레이어
-    public Vector3 offset = new Vector3(0, 2.0f, 0); //얼마나 위에 위치시킬 것인가
+    public Vector3 offset = new Vector3(0, 2.5f, 0); //얼마나 위에 위치시킬 것인가
     public Canvas canvas;//TimingBar가 속한 canvas
 
     private RectTransform rectTransform;

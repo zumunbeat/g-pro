@@ -1,0 +1,1352 @@
+fileFormatVersion: 2
+guid: e4a8236b6d6629e4d943fcb09be985e7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -137388484782760784
+    second: WolfSphere_0
+  - first:
+      213: 2106663666734384264
+    second: WolfSphere_1
+  - first:
+      213: -3386476719760291206
+    second: WolfSphere_2
+  - first:
+      213: 824462923779633177
+    second: WolfSphere_3
+  - first:
+      213: 4677368966311071973
+    second: WolfSphere_4
+  - first:
+      213: -8480315373931456996
+    second: WolfSphere_5
+  - first:
+      213: -2110900948924064668
+    second: WolfSphere_6
+  - first:
+      213: -844503259673904525
+    second: WolfSphere_7
+  - first:
+      213: 805283221700563301
+    second: WolfSphere_8
+  - first:
+      213: 7631834800637732212
+    second: WolfSphere_9
+  - first:
+      213: -3960306244530239662
+    second: WolfSphere_10
+  - first:
+      213: -7959281180613815139
+    second: WolfSphere_11
+  - first:
+      213: -5615111749997889699
+    second: WolfSphere_12
+  - first:
+      213: -2888612494374837819
+    second: WolfSphere_13
+  - first:
+      213: 3609413985915055976
+    second: WolfSphere_14
+  - first:
+      213: 3707234395094474271
+    second: WolfSphere_15
+  - first:
+      213: -6871228305260304943
+    second: WolfSphere_16
+  - first:
+      213: -5867536327285500689
+    second: WolfSphere_17
+  - first:
+      213: 5183906061769729474
+    second: WolfSphere_18
+  - first:
+      213: -3619536400952547886
+    second: WolfSphere_19
+  - first:
+      213: 8863209271489670550
+    second: WolfSphere_20
+  - first:
+      213: -8618694351656542125
+    second: WolfSphere_21
+  - first:
+      213: -1634225157801854158
+    second: WolfSphere_22
+  - first:
+      213: -3246077260195613687
+    second: WolfSphere_23
+  - first:
+      213: 4298776516435103176
+    second: WolfSphere_24
+  - first:
+      213: 2976397661621319906
+    second: WolfSphere_25
+  - first:
+      213: -4270662432177325776
+    second: WolfSphere_26
+  - first:
+      213: 2658892889850625332
+    second: WolfSphere_27
+  - first:
+      213: 6955189817386207285
+    second: WolfSphere_28
+  - first:
+      213: -713864825286341514
+    second: WolfSphere_29
+  - first:
+      213: -6136660492394743082
+    second: WolfSphere_30
+  - first:
+      213: 2051345347411532101
+    second: WolfSphere_31
+  - first:
+      213: -7731146954925966060
+    second: WolfSphere_32
+  - first:
+      213: 223865795359778129
+    second: WolfSphere_33
+  - first:
+      213: -4176074677713154743
+    second: WolfSphere_34
+  - first:
+      213: -3241691827407943356
+    second: WolfSphere_35
+  - first:
+      213: -7879638217179249096
+    second: WolfSphere_36
+  - first:
+      213: -4169430838985798498
+    second: WolfSphere_37
+  - first:
+      213: -2137370674357896193
+    second: WolfSphere_38
+  - first:
+      213: 4050741213265574714
+    second: WolfSphere_39
+  - first:
+      213: -3568823814792501286
+    second: WolfSphere_40
+  - first:
+      213: 1825685579105797883
+    second: WolfSphere_41
+  - first:
+      213: -9211088815764761663
+    second: WolfSphere_42
+  - first:
+      213: -7272986734605217251
+    second: WolfSphere_43
+  - first:
+      213: 2401194108196000936
+    second: WolfSphere_44
+  - first:
+      213: -563555453742658295
+    second: WolfSphere_45
+  - first:
+      213: -4906552711808917524
+    second: WolfSphere_46
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WolfSphere_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 839
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bc5b48a6e5e71ef0800000000000000
+      internalID: -137388484782760784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 839
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 884ccec717f5c3d10800000000000000
+      internalID: 2106663666734384264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_2
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 775
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7ace8e9d51d001d0800000000000000
+      internalID: -3386476719760291206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_3
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 774
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9107d5639a4117b00800000000000000
+      internalID: 824462923779633177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_4
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 711
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e058680b4a59e040800000000000000
+      internalID: 4677368966311071973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_5
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 711
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c161889191edf4a80800000000000000
+      internalID: -8480315373931456996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_6
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 711
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46c985f55c294b2e0800000000000000
+      internalID: -2110900948924064668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_7
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 711
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37a3a7b72c8b744f0800000000000000
+      internalID: -844503259673904525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_8
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 646
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5615b05d2d0fc2b00800000000000000
+      internalID: 805283221700563301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_9
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 645
+        width: 23
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 475e974e059b9e960800000000000000
+      internalID: 7631834800637732212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_10
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 646
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2578305047a2a09c0800000000000000
+      internalID: -3960306244530239662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_11
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 645
+        width: 25
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d94df02bfe3fa8190800000000000000
+      internalID: -7959281180613815139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_12
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 581
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d57f04f0d9d1312b0800000000000000
+      internalID: -5615111749997889699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_13
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 581
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c1680bad3699e7d0800000000000000
+      internalID: -2888612494374837819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_14
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 518
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86f2bcd85e6371230800000000000000
+      internalID: 3609413985915055976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_15
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 519
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1e57b26a0eb27330800000000000000
+      internalID: 3707234395094474271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_16
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 519
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d5a95ef24e74a0a0800000000000000
+      internalID: -6871228305260304943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_17
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 455
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe492714cc2529ea0800000000000000
+      internalID: -5867536327285500689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_18
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 454
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c567c0091fe0f740800000000000000
+      internalID: 5183906061769729474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_19
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 454
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d5a0a902d2d4cdc0800000000000000
+      internalID: -3619536400952547886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_20
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 391
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69d27158fd1700b70800000000000000
+      internalID: 8863209271489670550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_21
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 391
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 350a8d5a62f346880800000000000000
+      internalID: -8618694351656542125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_22
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 391
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23bb632a0e01259e0800000000000000
+      internalID: -1634225157801854158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_23
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 327
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90431982eed93f2d0800000000000000
+      internalID: -3246077260195613687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_24
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 327
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cdc7ee377258ab30800000000000000
+      internalID: 4298776516435103176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_25
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 327
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e8fd3357e94e4920800000000000000
+      internalID: 2976397661621319906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_26
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 326
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 039f676152f8bb4c0800000000000000
+      internalID: -4270662432177325776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_27
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 263
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43dbb53fef846e420800000000000000
+      internalID: 2658892889850625332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_28
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 263
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53808bae94cc58060800000000000000
+      internalID: 6955189817386207285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_29
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 263
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67c492f39b7d716f0800000000000000
+      internalID: -713864825286341514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_30
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 263
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6da33ababc336daa0800000000000000
+      internalID: -6136660492394743082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_31
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 199
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5495d1899b7d77c10800000000000000
+      internalID: 2051345347411532101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_32
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 199
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41d7b4d4ec275b490800000000000000
+      internalID: -7731146954925966060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_33
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 135
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 155a7c931c45b1300800000000000000
+      internalID: 223865795359778129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_34
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 135
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94d4767d43a9b06c0800000000000000
+      internalID: -4176074677713154743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_35
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 71
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 449001c45723303d0800000000000000
+      internalID: -3241691827407943356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_36
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 70
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83640722ac6e5a290800000000000000
+      internalID: -7879638217179249096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_37
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 69
+        width: 23
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9c41b61eb43326c0800000000000000
+      internalID: -4169430838985798498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_38
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 7
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffb7f8922b88652e0800000000000000
+      internalID: -2137370674357896193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_39
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 7
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3bbab5fbaf173830800000000000000
+      internalID: 4050741213265574714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_40
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 8
+        width: 31
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad7a65d16adf87ec0800000000000000
+      internalID: -3568823814792501286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_41
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 10
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf6872e7c53265910800000000000000
+      internalID: 1825685579105797883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_42
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 5
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c394c54683ab2080800000000000000
+      internalID: -9211088815764761663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_43
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 5
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d125abb4919211b90800000000000000
+      internalID: -7272986734605217251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_44
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 7
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a498cfb151c25120800000000000000
+      internalID: 2401194108196000936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_45
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 5
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90d4f68fc49dd28f0800000000000000
+      internalID: -563555453742658295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfSphere_46
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 7
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cef56ecfd4c68ebb0800000000000000
+      internalID: -4906552711808917524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      WolfSphere_0: -137388484782760784
+      WolfSphere_1: 2106663666734384264
+      WolfSphere_10: -3960306244530239662
+      WolfSphere_11: -7959281180613815139
+      WolfSphere_12: -5615111749997889699
+      WolfSphere_13: -2888612494374837819
+      WolfSphere_14: 3609413985915055976
+      WolfSphere_15: 3707234395094474271
+      WolfSphere_16: -6871228305260304943
+      WolfSphere_17: -5867536327285500689
+      WolfSphere_18: 5183906061769729474
+      WolfSphere_19: -3619536400952547886
+      WolfSphere_2: -3386476719760291206
+      WolfSphere_20: 8863209271489670550
+      WolfSphere_21: -8618694351656542125
+      WolfSphere_22: -1634225157801854158
+      WolfSphere_23: -3246077260195613687
+      WolfSphere_24: 4298776516435103176
+      WolfSphere_25: 2976397661621319906
+      WolfSphere_26: -4270662432177325776
+      WolfSphere_27: 2658892889850625332
+      WolfSphere_28: 6955189817386207285
+      WolfSphere_29: -713864825286341514
+      WolfSphere_3: 824462923779633177
+      WolfSphere_30: -6136660492394743082
+      WolfSphere_31: 2051345347411532101
+      WolfSphere_32: -7731146954925966060
+      WolfSphere_33: 223865795359778129
+      WolfSphere_34: -4176074677713154743
+      WolfSphere_35: -3241691827407943356
+      WolfSphere_36: -7879638217179249096
+      WolfSphere_37: -4169430838985798498
+      WolfSphere_38: -2137370674357896193
+      WolfSphere_39: 4050741213265574714
+      WolfSphere_4: 4677368966311071973
+      WolfSphere_40: -3568823814792501286
+      WolfSphere_41: 1825685579105797883
+      WolfSphere_42: -9211088815764761663
+      WolfSphere_43: -7272986734605217251
+      WolfSphere_44: 2401194108196000936
+      WolfSphere_45: -563555453742658295
+      WolfSphere_46: -4906552711808917524
+      WolfSphere_5: -8480315373931456996
+      WolfSphere_6: -2110900948924064668
+      WolfSphere_7: -844503259673904525
+      WolfSphere_8: 805283221700563301
+      WolfSphere_9: 7631834800637732212
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
