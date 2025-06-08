@@ -6,7 +6,7 @@ public class TurnManager : MonoBehaviour
 {
     public enum BattleState { PlayerTurn, EnemyTurn, Busy }
     public BattleState state;
-
+    
     public TimingBar timingBar;
     public List<TimingPattern> enemyAttackPatterns;
     private int currentEnemyIndex = 0;
@@ -14,6 +14,7 @@ public class TurnManager : MonoBehaviour
     public EnemyController enemy;
     public BattleUI battleUI;
 
+    bool isFinished = false;
     void Start()
     {
         battleUI.SetupButtons(this);
@@ -84,7 +85,7 @@ public class TurnManager : MonoBehaviour
         enemy.PlayAnimation("Attack");
         yield return new WaitForSeconds(0.5f); // 공격 애니메이션 시간
 
-        bool isFinished = false;
+        
 
         if (enemyAttackPatterns.Count == 0)
         {
@@ -97,24 +98,7 @@ public class TurnManager : MonoBehaviour
 
             //TODO 회피를 실패해도 성공처리되거나 타이밍을 실패하여 눌러도 판정구간이 사라지지않음
             //스페이스바를 연타할 수 있음 <- 원래는 한 판정구간당 한번만 누를 수 있어야한다.
-            timingBar.StartBar(pattern, (bool playerDodged) =>
-            {
-                if (!playerDodged)
-                {
-                    Debug.Log("회피 실패! 플레이어가 데미지 입음");
-
-                    player.TakeDamage(10); // 데미지 수치 조정 가능
-                    
-                }
-                else
-                {
-                    Debug.Log("회피 성공! 데미지 없음");
-                    
-                }
-
-                currentEnemyIndex = (currentEnemyIndex + 1) % enemyAttackPatterns.Count;
-                isFinished = true;
-            }); 
+            timingBar.StartBar(pattern, OnTimingComplete); 
         }
 
         yield return new WaitUntil(() => isFinished);
@@ -158,5 +142,12 @@ public class TurnManager : MonoBehaviour
             yield return null;
         }
         actor.position = targetPos;
+    }
+
+    void OnTimingComplete(bool playerDodged)
+    {
+        if (!playerDodged) player.TakeDamage(10);
+        currentEnemyIndex = (currentEnemyIndex + 1) % enemyAttackPatterns.Count;
+        isFinished = true;
     }
 }

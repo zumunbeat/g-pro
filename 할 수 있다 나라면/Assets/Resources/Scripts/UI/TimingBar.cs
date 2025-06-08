@@ -10,7 +10,6 @@ public class TimingBar : MonoBehaviour
     public Slider progressBar;
     public RectTransform dodgeSpotPrefab; // 프리팹 (투명 이미지 또는 색상 블록)
     public RectTransform spotParent;      // Spot들을 담는 부모 오브젝트
-    private RectTransform barRect;       // 타이밍 바 전체 RectTransform
     public RectTransform handleRect;    // 움직이는 핸들 RectTransform
 
     private float duration;
@@ -26,11 +25,6 @@ public class TimingBar : MonoBehaviour
 
     public void StartBar(TimingPattern pattern, Action<bool> onComplete)
     {
-        //if (currentSpots == null || currentSpots.Count == 0)
-        //{
-        //    Debug.LogWarning("회피 구간이 비어 있습니다.");
-        //    return;
-        //}
         Debug.Log("Start Bar 생성");
         duration = pattern.duration;
         spotSuccesses = new List<bool>(new bool[currentSpots.Count]);//모두 false로 초기화
@@ -39,7 +33,6 @@ public class TimingBar : MonoBehaviour
         currentSpots = pattern.dodgeSpots;
         onCompleteCallback = onComplete;
         spotSuccesses = new List<bool>(new bool[currentSpots.Count]);
-        barRect = spotParent;
         ClearExistingSpots();
         ShowDodgeSpots(currentSpots);
     }
@@ -58,66 +51,62 @@ public class TimingBar : MonoBehaviour
             isRunning = false;
             bool allSuccess = spotSuccesses.TrueForAll(success => success);
             onCompleteCallback?.Invoke(allSuccess);
+            return;
         }
         // 1. 지나친 Spot 자동 제거
         for (int i = 0; i < currentSpots.Count; i++)
         {
             if (spotSuccesses[i]) continue;
 
-            float extendedEnd = currentSpots[i].end;
-
-            if (progress > extendedEnd)
+            if (progress > currentSpots[i].end)
             {
+                spotSuccesses[i] = true; // 먼저 true로 지정
                 Debug.Log($"구간 {i} 실패 (지남)");
                 RemoveSpot(i);
-                spotSuccesses[i] = true;
             }
         }
         // 2. Space 누르면 판정
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (currentSpots == null || currentSpots.Count == 0)
+            if (spotSuccesses.TrueForAll(success => success))
             {
-                Debug.LogWarning("회피 구간 없음");
+                Debug.LogWarning("이미 모든 회피 구간 처리 완료");
                 return;
             }
 
-            bool anySuccessThisPress = false;
+            bool anySuccess = false;
 
             for (int i = 0; i < currentSpots.Count; i++)
             {
                 if (spotSuccesses[i]) continue;
 
-                float extendedStart = currentSpots[i].start;
-                float extendedEnd = currentSpots[i].end;
+                float start = Mathf.Max(0f, currentSpots[i].start);
+                float end = Mathf.Min(1f, currentSpots[i].end);
 
-                extendedStart = Mathf.Max(0f, extendedStart);
-                extendedEnd = Mathf.Min(1f, extendedEnd);
-
-                if (progress >= extendedStart && progress <= extendedEnd)
+                if (progress >= start && progress <= end)
                 {
                     Debug.Log($"구간 {i} 회피 성공!");
                     spotSuccesses[i] = true;
-                    anySuccessThisPress = true;
                     RemoveSpot(i);
+                    anySuccess = true;
                     break;
                 }
             }
 
-            // 3. 실패 시 → 가장 가까운 Spot 제거
-            if (!anySuccessThisPress)
+            // 실패 시 가장 가까운 Spot 제거
+            if (!anySuccess)
             {
                 int closestIndex = -1;
-                float closestDistance = float.MaxValue;
+                float closestDist = float.MaxValue;
 
                 for (int i = 0; i < currentSpots.Count; i++)
                 {
                     if (spotSuccesses[i]) continue;
-
                     float dist = Mathf.Abs(progress - currentSpots[i].start);
-                    if (dist < closestDistance)
+
+                    if (dist < closestDist)
                     {
-                        closestDistance = dist;
+                        closestDist = dist;
                         closestIndex = i;
                     }
                 }
@@ -125,25 +114,15 @@ public class TimingBar : MonoBehaviour
                 if (closestIndex != -1)
                 {
                     Debug.Log($"정확한 회피 실패, 가장 가까운 spot {closestIndex} 제거");
+                    spotSuccesses[closestIndex] = false;
                     RemoveSpot(closestIndex);
-                    spotSuccesses[closestIndex] = true;
                 }
-
-                Debug.Log("회피 실패 (타이밍 미스)");
             }
-        }
-
-        // 종료 처리
-        if (progress >= 1f)
-        {
-            isRunning = false;
-            bool allSuccess = spotSuccesses.TrueForAll(success => success);
-            onCompleteCallback?.Invoke(allSuccess);
         }
     }
     void RemoveSpot(int index)
     {
-        if (index < spotUIObjects.Count && spotUIObjects[index] != null)
+        if (index >= 0 && index < spotUIObjects.Count && spotUIObjects[index] != null)
         {
             Destroy(spotUIObjects[index]);
             spotUIObjects[index] = null;
@@ -163,7 +142,7 @@ public class TimingBar : MonoBehaviour
 
     void ShowDodgeSpots(List<DodgeSpotData> spots)
     {
-        float barWidth = barRect.rect.width;
+        float barWidth = spotParent.rect.width;
         spotUIObjects.Clear();
 
         foreach (var spot in spots)
@@ -174,8 +153,6 @@ public class TimingBar : MonoBehaviour
 
             spotUI.anchoredPosition = new Vector2(posX, 0);
             spotUI.sizeDelta = new Vector2(width - 0.1f, spotUI.sizeDelta.y);
-
-            //생성 후 표현된 spot list에 추가
             spotUIObjects.Add(spotUI.gameObject);
         }
     }
