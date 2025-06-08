@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -8,33 +8,92 @@ public class TimingBar : MonoBehaviour
 {
     [Header("UI")]
     public Slider progressBar;
-    public RectTransform dodgeSpotPrefab; // ÇÁ¸®ÆÕ (Åõ¸í ÀÌ¹ÌÁö ¶Ç´Â »ö»ó ºí·Ï)
-    public RectTransform spotParent;      // SpotµéÀ» ´ã´Â ºÎ¸ğ ¿ÀºêÁ§Æ®
-    public RectTransform handleRect;    // ¿òÁ÷ÀÌ´Â ÇÚµé RectTransform
+    public RectTransform dodgeSpotPrefab; // í”„ë¦¬íŒ¹ (íˆ¬ëª… ì´ë¯¸ì§€ ë˜ëŠ” ìƒ‰ìƒ ë¸”ë¡)
+    public RectTransform spotParent;      // Spotë“¤ì„ ë‹´ëŠ” ë¶€ëª¨ ì˜¤ë¸Œì íŠ¸
+    public RectTransform handleRect;    // ì›€ì§ì´ëŠ” í•¸ë“¤ RectTransform
 
     private float duration;
     private float currentTime;
     private bool isRunning = false;
 
-    //ÀüÃ¼ spot Object¸¦ Ç¥Çö
+    //ì „ì²´ spot Objectë¥¼ í‘œí˜„
     private List<DodgeSpotData> currentSpots = new List<DodgeSpotData>();
-    //½Ã°¢ÀûÀ¸·Î Ç¥ÇöµÈ spot¿ÀºêÁ§Æ®µéÀ» ÀúÀå
+    //ì‹œê°ì ìœ¼ë¡œ í‘œí˜„ëœ spotì˜¤ë¸Œì íŠ¸ë“¤ì„ ì €ì¥
     private List<GameObject> spotUIObjects = new List<GameObject>();
     private Action<bool> onCompleteCallback;
-    private List<bool> spotSuccesses;
+    private List<bool> spotSuccesses = new List<bool>();
+    private List<bool> spotProcessed = new List<bool>();
+
 
     public void StartBar(TimingPattern pattern, Action<bool> onComplete)
     {
-        Debug.Log("Start Bar »ı¼º");
+        Debug.Log("Start Bar ìƒì„±");
+
         duration = pattern.duration;
-        spotSuccesses = new List<bool>(new bool[currentSpots.Count]);//¸ğµÎ false·Î ÃÊ±âÈ­
         currentTime = 0f;
         isRunning = true;
-        currentSpots = pattern.dodgeSpots;
         onCompleteCallback = onComplete;
-        spotSuccesses = new List<bool>(new bool[currentSpots.Count]);
-        ClearExistingSpots();
-        ShowDodgeSpots(currentSpots);
+        spotProcessed = new List<bool>(new bool[currentSpots.Count]);  // ëª¨ë‘ falseë¡œ ì´ˆê¸°í™”
+
+        currentSpots = pattern.dodgeSpots;
+
+        // spotSuccesses ì´ˆê¸°í™” (ê¸¸ì´ ë§ì¶°ì„œ ì¬í™œìš© ë˜ëŠ” ìƒˆë¡œ ìƒì„±)
+        if (spotSuccesses == null || spotSuccesses.Count != currentSpots.Count)
+        {
+            spotSuccesses = new List<bool>(new bool[currentSpots.Count]);
+        }
+        else
+        {
+            for (int i = 0; i < spotSuccesses.Count; i++)
+                spotSuccesses[i] = false;
+        }
+
+        // spotProcessed ì´ˆê¸°í™”ë„ ë™ì¼í•˜ê²Œ ì ìš© ê°€ëŠ¥
+        if (spotProcessed == null || spotProcessed.Count != currentSpots.Count)
+        {
+            spotProcessed = new List<bool>(new bool[currentSpots.Count]);
+        }
+        else
+        {
+            for (int i = 0; i < spotProcessed.Count; i++)
+                spotProcessed[i] = false;
+        }
+
+        // UI ì˜¤ë¸Œì íŠ¸ í’€ë§
+        for (int i = 0; i < currentSpots.Count; i++)
+        {
+            GameObject spotObj;
+
+            // ì¬ì‚¬ìš© ê°€ëŠ¥í•œ ì˜¤ë¸Œì íŠ¸ê°€ ìˆë‹¤ë©´ ì‚¬ìš©
+            if (i < spotUIObjects.Count && spotUIObjects[i] != null)
+            {
+                spotObj = spotUIObjects[i];
+                spotObj.SetActive(true);
+            }
+            else
+            {
+                // ì—†ìœ¼ë©´ ìƒˆë¡œ ìƒì„±
+                spotObj = Instantiate(dodgeSpotPrefab, spotParent).gameObject;
+
+                if (i < spotUIObjects.Count)
+                    spotUIObjects[i] = spotObj;
+                else
+                    spotUIObjects.Add(spotObj);
+            }
+
+            // ìœ„ì¹˜ ë° ì‚¬ì´ì¦ˆ ì¡°ì •
+            var rect = spotObj.GetComponent<RectTransform>();
+            rect.anchorMin = new Vector2(currentSpots[i].start, 0f);
+            rect.anchorMax = new Vector2(currentSpots[i].end, 1f);
+            rect.offsetMin = rect.offsetMax = Vector2.zero;
+        }
+
+        // ë‚¨ì€ spot ì˜¤ë¸Œì íŠ¸ ë¹„í™œì„±í™”
+        for (int i = currentSpots.Count; i < spotUIObjects.Count; i++)
+        {
+            if (spotUIObjects[i] != null)
+                spotUIObjects[i].SetActive(false);
+        }
     }
 
     void Update()
@@ -53,24 +112,26 @@ public class TimingBar : MonoBehaviour
             onCompleteCallback?.Invoke(allSuccess);
             return;
         }
-        // 1. Áö³ªÄ£ Spot ÀÚµ¿ Á¦°Å
+        // 1. ì§€ë‚˜ì¹œ Spot ìë™ ì œê±°
         for (int i = 0; i < currentSpots.Count; i++)
         {
-            if (spotSuccesses[i]) continue;
+            if (spotSuccesses[i] || spotProcessed[i]) continue;
 
             if (progress > currentSpots[i].end)
             {
-                spotSuccesses[i] = true; // ¸ÕÀú true·Î ÁöÁ¤
-                Debug.Log($"±¸°£ {i} ½ÇÆĞ (Áö³²)");
+                spotProcessed[i] = true;  // ì´ êµ¬ê°„ì€ ì‹¤íŒ¨ ì²˜ë¦¬ ì™„ë£Œ
+                spotSuccesses[i] = false; // ì‹¤íŒ¨ ìƒíƒœ ëª…í™•íˆ í‘œì‹œ
+                Debug.Log($"êµ¬ê°„ {i} ì‹¤íŒ¨ (ì§€ë‚¨)");
                 RemoveSpot(i);
+                break; // ë˜ëŠ” return;
             }
         }
-        // 2. Space ´©¸£¸é ÆÇÁ¤
+        // 2. Space ëˆ„ë¥´ë©´ íŒì •
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (spotSuccesses.TrueForAll(success => success))
             {
-                Debug.LogWarning("ÀÌ¹Ì ¸ğµç È¸ÇÇ ±¸°£ Ã³¸® ¿Ï·á");
+                Debug.LogWarning("ì´ë¯¸ ëª¨ë“  íšŒí”¼ êµ¬ê°„ ì²˜ë¦¬ ì™„ë£Œ");
                 return;
             }
 
@@ -85,15 +146,16 @@ public class TimingBar : MonoBehaviour
 
                 if (progress >= start && progress <= end)
                 {
-                    Debug.Log($"±¸°£ {i} È¸ÇÇ ¼º°ø!");
+                    Debug.Log($"êµ¬ê°„ {i} íšŒí”¼ ì„±ê³µ!");
                     spotSuccesses[i] = true;
+                    spotProcessed[i] = true;  // ì„±ê³µë„ ì²˜ë¦¬ ì™„ë£Œ í‘œì‹œ
                     RemoveSpot(i);
                     anySuccess = true;
                     break;
                 }
             }
 
-            // ½ÇÆĞ ½Ã °¡Àå °¡±î¿î Spot Á¦°Å
+            // ì‹¤íŒ¨ ì‹œ ê°€ì¥ ê°€ê¹Œìš´ Spot ì œê±°
             if (!anySuccess)
             {
                 int closestIndex = -1;
@@ -111,22 +173,22 @@ public class TimingBar : MonoBehaviour
                     }
                 }
 
-                if (closestIndex != -1)
+                if (closestIndex != -1 && !spotProcessed[closestIndex])
                 {
-                    Debug.Log($"Á¤È®ÇÑ È¸ÇÇ ½ÇÆĞ, °¡Àå °¡±î¿î spot {closestIndex} Á¦°Å");
+                    spotProcessed[closestIndex] = true;
                     spotSuccesses[closestIndex] = false;
+                    Debug.Log($"ì •í™•í•œ íšŒí”¼ ì‹¤íŒ¨, ê°€ì¥ ê°€ê¹Œìš´ spot {closestIndex} ì œê±°");
                     RemoveSpot(closestIndex);
                 }
             }
         }
     }
-    void RemoveSpot(int index)
+    public void RemoveSpot(int index)
     {
-        if (index >= 0 && index < spotUIObjects.Count && spotUIObjects[index] != null)
-        {
-            Destroy(spotUIObjects[index]);
-            spotUIObjects[index] = null;
-        }
+        if (index < 0 || index >= spotUIObjects.Count) return;
+
+        if (spotUIObjects[index] != null)
+            spotUIObjects[index].SetActive(false);
     }
 
     void ClearExistingSpots()

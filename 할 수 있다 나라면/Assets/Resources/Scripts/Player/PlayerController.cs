@@ -27,7 +27,28 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"{name} 재생");
         animator.SetTrigger(name);
     }
+    public void PerformAttack(Action onComplete)
+    {
+        Debug.Log($"{playerName}이(가) 일반 공격!");
+        onAnimationComplete = onComplete;
+        nextAnimation = AnimState.Idle;
+        animator.SetTrigger(AnimState.Attack);
+    }
 
+    public void PerformSkill(Action onComplete)
+    {
+        Debug.Log($"{playerName}이(가) 스킬 사용!");
+        onAnimationComplete = onComplete;
+        nextAnimation = AnimState.Idle; // 나중에 SkillIdle 같은 걸로 바꿔도 됨
+        animator.SetTrigger(AnimState.Attack); // 임시로 공격 애니메이션 재사용
+    }
+
+    public void UseItem(Action onComplete)
+    {
+        Debug.Log($"{playerName}이(가) 아이템 사용!");
+        // 아이템 애니메이션 있으면 여기서 처리
+        onComplete?.Invoke();
+    }
     // 공격 애니메이션 끝에서 Animation Event로 호출됨
     public void OnAttackAnimationComplete()
     {
@@ -54,26 +75,5 @@ public class PlayerController : MonoBehaviour
         // 죽음 처리 로직
     }
 
-    public void PerformAttack(Action onComplete)
-    {
-        Debug.Log($"{playerName}이(가) 일반 공격!");
-        onAnimationComplete = onComplete;
-        nextAnimation = AnimState.Idle;
-        animator.SetTrigger(AnimState.Attack);
-    }
-
-    public void PerformSkill(Action onComplete)
-    {
-        Debug.Log($"{playerName}이(가) 스킬 사용!");
-        onAnimationComplete = onComplete;
-        nextAnimation = AnimState.Idle; // 나중에 SkillIdle 같은 걸로 바꿔도 됨
-        animator.SetTrigger(AnimState.Attack); // 임시로 공격 애니메이션 재사용
-    }
-
-    public void UseItem(Action onComplete)
-    {
-        Debug.Log($"{playerName}이(가) 아이템 사용!");
-        // 아이템 애니메이션 있으면 여기서 처리
-        onComplete?.Invoke();
-    }
+    
 }

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,19 +24,19 @@ public class TurnManager : MonoBehaviour
     void StartPlayerTurn()
     {
         state = BattleState.PlayerTurn;
-        //UIÈ£Ãâ
+        //UIí˜¸ì¶œ
         battleUI.EnableActionButtons(true);
     }
 
     public void OnPlayerActionChosen(string action)
     {
-        Debug.Log($"Çàµ¿¼±ÅÃ: {action}");
+        Debug.Log($"í–‰ë™ì„ íƒ: {action}");
         battleUI.EnableActionButtons(false);
         state = BattleState.Busy;
 
         switch (action)
         {
-            //Çàµ¿ÈÄ¿¡ EnemyTurnÀ¸·Î ³Ñ¾î°¡µµ·Ï LamdaÇÔ¼ö ³Ñ±â±â
+            //í–‰ë™í›„ì— EnemyTurnìœ¼ë¡œ ë„˜ì–´ê°€ë„ë¡ Lamdaí•¨ìˆ˜ ë„˜ê¸°ê¸°
             case "Attack":
                 StartCoroutine(PlayerAttackSequence());
                 break;
@@ -57,12 +57,12 @@ public class TurnManager : MonoBehaviour
         bool success = Random.value > 0.5f;
         if (success)
         {
-            Debug.Log("µµ¸Á ¼º°ø!");
-            // ÀüÅõ Á¾·á Ã³¸®
+            Debug.Log("ë„ë§ ì„±ê³µ!");
+            // ì „íˆ¬ ì¢…ë£Œ ì²˜ë¦¬
         }
         else
         {
-            Debug.Log("µµ¸Á ½ÇÆĞ...");
+            Debug.Log("ë„ë§ ì‹¤íŒ¨...");
             StartEnemyTurn();
         }
     }
@@ -70,46 +70,50 @@ public class TurnManager : MonoBehaviour
     void StartEnemyTurn()
     {
         state = BattleState.EnemyTurn;
-        StartCoroutine(EnemyAttackSequence());
+        EnemyAttackWithTiming(enemyAttackPatterns[currentEnemyIndex]);
     }
 
-    IEnumerator EnemyAttackSequence()
+    void EnemyAttackWithTiming(TimingPattern pattern)
     {
         state = BattleState.Busy;
 
+        StartCoroutine(EnemyAttackSequence(pattern));
+    }
+
+    IEnumerator EnemyAttackSequence(TimingPattern pattern)
+    {
         Vector3 origin = enemy.transform.position;
         Vector3 target = player.transform.position + new Vector3(1.5f, 0);
 
         yield return MoveTo(enemy.transform, target);
 
         enemy.PlayAnimation("Attack");
-        yield return new WaitForSeconds(0.5f); // °ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç ½Ã°£
+        yield return new WaitForSeconds(0.5f);
 
-        
-
-        if (enemyAttackPatterns.Count == 0)
+        // í•µì‹¬: TimingBar ì‹¤í–‰, ì½œë°± ì•ˆì—ì„œ í„´ ì¢…ë£Œ
+        timingBar.StartBar(pattern, (bool dodged) =>
         {
-            Debug.LogWarning("Àû ÆĞÅÏ ¾øÀ½!");
-            isFinished = true;
-        }
-        else
-        {
-            TimingPattern pattern = enemyAttackPatterns[currentEnemyIndex];
+            if (!dodged)
+            {
+                player.TakeDamage(10);
+                Debug.Log("íšŒí”¼ ì‹¤íŒ¨ â†’ ë°ë¯¸ì§€ ì²˜ë¦¬");
+            }
+            else
+            {
+                Debug.Log("íšŒí”¼ ì„±ê³µ");
+            }
 
-            //TODO È¸ÇÇ¸¦ ½ÇÆĞÇØµµ ¼º°øÃ³¸®µÇ°Å³ª Å¸ÀÌ¹ÖÀ» ½ÇÆĞÇÏ¿© ´­·¯µµ ÆÇÁ¤±¸°£ÀÌ »ç¶óÁöÁö¾ÊÀ½
-            //½ºÆäÀÌ½º¹Ù¸¦ ¿¬Å¸ÇÒ ¼ö ÀÖÀ½ <- ¿ø·¡´Â ÇÑ ÆÇÁ¤±¸°£´ç ÇÑ¹ø¸¸ ´©¸¦ ¼ö ÀÖ¾î¾ßÇÑ´Ù.
-            timingBar.StartBar(pattern, OnTimingComplete); 
-        }
-
-        yield return new WaitUntil(() => isFinished);
-
+            StartCoroutine(EndEnemyTurn(origin));
+        });
+    }
+    IEnumerator EndEnemyTurn(Vector3 origin)
+    {
         yield return MoveTo(enemy.transform, origin);
-
         enemy.PlayAnimation("Idle");
 
+        currentEnemyIndex = (currentEnemyIndex + 1) % enemyAttackPatterns.Count;
         StartPlayerTurn();
     }
-
     IEnumerator PlayerAttackSequence()
     {
         state = BattleState.Busy;
@@ -120,13 +124,13 @@ public class TurnManager : MonoBehaviour
         yield return MoveTo(player.transform, target);
 
         player.PlayAnimation("Attack");
-        yield return new WaitForSeconds(0.5f); // °ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç ±æÀÌ¸¸Å­
+        yield return new WaitForSeconds(0.5f); // ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ê¸¸ì´ë§Œí¼
 
         enemy.TakeDamage(10);
         
         yield return MoveTo(player.transform, origin);
         
-        player.PlayAnimation("Idle"); // ¼öµ¿À¸·Î Idle ÀüÈ¯
+        player.PlayAnimation("Idle"); // ìˆ˜ë™ìœ¼ë¡œ Idle ì „í™˜
         
         StartEnemyTurn();
     }
