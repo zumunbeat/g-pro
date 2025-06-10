@@ -2,19 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurnManager : MonoBehaviour
+//TODO Monobehaviour 때세요.
+public class TurnManager : MonoBehaviour, IManager
 {
     public enum BattleState { PlayerTurn, EnemyTurn, Busy }
     public BattleState state;
-    
+
     public TimingBar timingBar;
     public List<TimingPattern> enemyAttackPatterns;
-    private int currentEnemyIndex = 0;
     public PlayerController player;
     public EnemyController enemy;
     public BattleUI battleUI;
+    private int currentEnemyIndex = 0;
 
-    bool isFinished = false;
+    public void Init()
+    {
+        // Managers 시스템에서 자동 호출됨
+    }
+
+
     void Start()
     {
         battleUI.SetupButtons(this);
@@ -148,10 +154,7 @@ public class TurnManager : MonoBehaviour
         actor.position = targetPos;
     }
 
-    void OnTimingComplete(bool playerDodged)
-    {
-        if (!playerDodged) player.TakeDamage(10);
-        currentEnemyIndex = (currentEnemyIndex + 1) % enemyAttackPatterns.Count;
-        isFinished = true;
-    }
+   
+
+    
 }

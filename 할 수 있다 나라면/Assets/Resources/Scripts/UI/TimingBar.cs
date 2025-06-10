@@ -15,7 +15,6 @@ public class TimingBar : MonoBehaviour
     private float duration;
     private float currentTime;
     private bool isRunning = false;
-
     //전체 spot Object를 표현
     private List<DodgeSpotData> currentSpots = new List<DodgeSpotData>();
     //시각적으로 표현된 spot오브젝트들을 저장
@@ -30,12 +29,11 @@ public class TimingBar : MonoBehaviour
         Debug.Log("Start Bar 생성");
 
         duration = pattern.duration;
+        currentSpots = pattern.dodgeSpots;
+        onCompleteCallback = onComplete;
         currentTime = 0f;
         isRunning = true;
-        onCompleteCallback = onComplete;
-        spotProcessed = new List<bool>(new bool[currentSpots.Count]);  // 모두 false로 초기화
 
-        currentSpots = pattern.dodgeSpots;
 
         // spotSuccesses 초기화 (길이 맞춰서 재활용 또는 새로 생성)
         if (spotSuccesses == null || spotSuccesses.Count != currentSpots.Count)
